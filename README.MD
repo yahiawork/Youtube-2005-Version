@@ -1,4 +1,4 @@
-🎬 YouTube 2005 – Classic Version Clone
+## YouTube 2005 – Classic Version Clone
 
 A nostalgic recreation of the original YouTube 2005 experience built
 with modern backend tools while preserving the classic design and
@@ -10,7 +10,7 @@ the early internet era.
 
 ------------------------------------------------------------------------
 
-✨ Features
+## Features
 
 ✔ Classic 2005 YouTube style interface
 ✔ Video upload system
@@ -22,7 +22,7 @@ the early internet era.
 
 ------------------------------------------------------------------------
 
-🧠 Tech Stack
+## Tech Stack
 
 Backend - Python - Flask
 
@@ -32,36 +32,36 @@ Storage - Local file uploads
 
 ------------------------------------------------------------------------
 
-📂 Project Structure
-
+## Project Structure
+```
 Youtube-2005-Version/ │ ├── app/ # Main application logic ├── uploads/ #
 Uploaded videos storage ├── instance/ # App instance configuration ├──
 run.py # App entry point ├── requirements.txt # Dependencies └── LICENSE
-
+```
 ------------------------------------------------------------------------
 
-🚀 Getting Started
+## Getting Started
 
 1️⃣ Clone the repository
-
-git clone https://github.com/yahiawork/Youtube-2005-Version.git cd
-Youtube-2005-Version
-
+```
+git clone https://github.com/yahiawork/Youtube-2005-Version.git 
+cd Youtube-2005-Version
+```
 2️⃣ Install dependencies
-
+```
 pip install -r requirements.txt
-
+```
 3️⃣ Run the server
-
+```
 python run.py
-
+```
 4️⃣ Open in browser
-
+```
 http://127.0.0.1:5000
-
+```
 ------------------------------------------------------------------------
 
-🎯 Project Goal
+## Project Goal
 
 This project is designed to:
 
@@ -73,15 +73,7 @@ This project is designed to:
 
 ------------------------------------------------------------------------
 
-📸 Screenshots (optional)
-
-Add screenshots here to show UI
-
-/screenshots/homepage.png /screenshots/video_page.png
-
-------------------------------------------------------------------------
-
-🛠 Future Improvements
+## Future Improvements
 
 -   User authentication
 -   Comments system
@@ -95,26 +87,26 @@ Add screenshots here to show UI
 
 ------------------------------------------------------------------------
 
-🤝 Contributing
+## Contributing
 
 Pull requests are welcome.
 For major changes, please open an issue first.
 
 ------------------------------------------------------------------------
 
-📜 License
+## License
 
 This project is licensed under the MIT License.
 
 ------------------------------------------------------------------------
 
-👨‍💻 Author
+## Author
 
 Yahia Saad
 GitHub: https://github.com/yahiawork
 
 ------------------------------------------------------------------------
 
-⭐ Support
+## Support
 
 If you like this project, consider giving it a star ⭐
