@@ -4,7 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Youtube 2005</title>
+<link rel="icon" href="{{ url_for('static', filename='icon.jpg') }}" />
   <link rel="stylesheet" href="{{ url_for('static', filename='css/old.css') }}">
+<style>
+img { 
+	border-radius: 0px; 
+	width: 182px;
+	heigh: auto;
+left: -100px;
+}
+</style>
 </head>
 <body>
   <div id="outer">
@@ -16,9 +25,7 @@
     </div>
 
     <div id="header">
-      <div id="brand">
-        <span class="you">You</span><span class="tube">Tube</span>
-      </div>
+        <img src="{{ url_for('static', filename='download.jpg') }}" />
 
       <div id="tabs">
         <a class="tab" href="{{ url_for('videos.home') }}">HOME</a>
