@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% set title = "OldTube - Messages" %}
+{% block content %}
+  <div class="grid-title">Messages - Inbox</div>
+
+  <div class="box">
+    <a href="{{ url_for('extras.compose') }}">Compose</a> |
+    <a href="{{ url_for('extras.sent') }}">Sent</a>
+  </div>
+
+  <div class="box">
+    {% for m in messages %}
+      <div class="msgline">
+        {% if not m.is_read %}<b>[NEW]</b>{% endif %}
+        <a href="{{ url_for('extras.read_message', msg_id=m.id) }}"><b>{{ m.subject }}</b></a>
+        - from <a href="{{ url_for('profile.user_profile', username=m.sender.username) }}">{{ m.sender.username }}</a>
+        <span class="small">({{ m.created_at }})</span>
+      </div>
+    {% else %}
+      <div class="empty">No messages.</div>
+    {% endfor %}
+  </div>
+{% endblock %}

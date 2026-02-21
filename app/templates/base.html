@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Youtube 2005</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/old.css') }}">
+</head>
+<body>
+  <div id="outer">
+    <div id="topbar">
+      <div id="headright">
+        <a class="signup" href="{{ url_for('auth.register_page') }}">SIGN UP HERE &gt;&gt;</a>
+        <a class="help" href="{{ url_for('extras.help_page') }}">Help</a>
+      </div>
+    </div>
+
+    <div id="header">
+      <div id="brand">
+        <span class="you">You</span><span class="tube">Tube</span>
+      </div>
+
+      <div id="tabs">
+        <a class="tab" href="{{ url_for('videos.home') }}">HOME</a>
+        <a class="tab" href="{{ url_for('extras.favorites') }}">FAVORITES</a>
+        <a class="tab" href="{{ url_for('videos.upload_page') }}">UPLOAD</a>
+        <a class="tab" href="{{ url_for('videos.list_videos') }}">VIDEOS</a>
+        <a class="tab" href="{{ url_for('profile.me') }}">MY PROFILE</a>
+      </div>
+    </div>
+
+    <div id="whitepanel">
+      <div id="loginbar">
+        {% if user.is_authenticated %}
+          <div class="login-left">Signed in as <b><a href="{{ url_for('profile.user_profile', username=user.username) }}">{{ user.username }}</a></b></div>
+          <form class="login-right" action="{{ url_for('auth.logout') }}" method="post">
+            <input class="btn" type="submit" value="Log Out">
+          </form>
+        {% else %}
+          <form class="login-form" action="{{ url_for('auth.login') }}" method="post">
+            <span class="lbl">Screen Name:</span>
+            <input class="txt" name="username">
+            <span class="lbl">Password:</span>
+            <input class="txt" type="password" name="password">
+            <input class="btn" type="submit" value="Log In">
+          </form>
+        {% endif %}
+      </div>
+
+      <div id="content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for cat, msg in messages %}
+              <div class="flash {{ 'ok' if cat=='ok' else 'err' }}">{{ msg }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

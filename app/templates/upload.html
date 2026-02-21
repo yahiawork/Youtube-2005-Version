@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% set title = "OldTube - Upload" %}
+{% block content %}
+  <div class="grid-title">Upload</div>
+  <div class="box">
+    <form method="post" enctype="multipart/form-data" action="{{ url_for('videos.upload_post') }}">
+      <div class="row"><span class="lbl2">Title:</span> <input class="txt2" name="title" required></div>
+      <div class="row"><span class="lbl2">File:</span> <input class="txt2" type="file" name="file" required></div>
+      <div class="row"><span class="lbl2">Thumbnail:</span> <input class="txt2" type="file" name="thumb"></div>
+      <div class="row"><input class="btn" type="submit" value="Upload"></div>
+      <div class="hint">Max {{ max_mb }}MB • If thumbnail empty, auto-generate (ffmpeg).</div>
+    </form>
+  </div>
+{% endblock %}

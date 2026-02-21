@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% set title = "OldTube - Read" %}
+{% block content %}
+  <div class="grid-title">{{ m.subject }}</div>
+
+  <div class="box">
+    <b>From:</b> <a href="{{ url_for('profile.user_profile', username=m.sender.username) }}">{{ m.sender.username }}</a><br>
+    <b>To:</b> <a href="{{ url_for('profile.user_profile', username=m.recipient.username) }}">{{ m.recipient.username }}</a><br>
+    <b>Date:</b> {{ m.created_at }}<br><br>
+    {{ m.body }}
+  </div>
+
+  <div class="box">
+    <a href="{{ url_for('extras.compose', to=m.sender.username, subject='Re: ' ~ m.subject) }}">Reply</a> |
+    <a href="{{ url_for('extras.inbox') }}">Inbox</a>
+  </div>
+{% endblock %}

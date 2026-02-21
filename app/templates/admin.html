@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% set title = "OldTube - Admin" %}
+{% block content %}
+  <div class="grid-title">Admin</div>
+  <div class="box">
+    <b>Users</b><br>
+    {% for u in users %}
+      #{{ u.id }} - {{ u.username }} {% if u.is_admin %}(admin){% endif %}<br>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,268 @@
+/* OldTube v9 - MORE RETRO (closer to 2006) */
+/* - no vignette overlay
+   - no heavy shadow
+   - smaller radius
+   - flat colors (no modern feel)
+   - fixes duplicate/conflicting rules
+*/
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* gradient قديم كلاسيكي */
+    background: linear-gradient(
+        to bottom,
+        #e5eef6 0%,
+        #c9d8e6 40%,
+        #a9bfd4 100%
+    );
+
+    background-attachment: fixed;
+}
+a{ color:#003399; text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+/* Center panel like old screenshot */
+#outer{
+  width:860px;
+  max-width:96%;
+  margin:12px auto;
+  background: linear-gradient(#6a93b6, #4b77a3);
+  border:1px solid #2f5f86;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+/* Thin dark strip like 2005 header */
+#topbar{
+  background: linear-gradient(#5d83a8, #3f688f);
+  padding:6px 10px;
+  border-bottom:1px solid #2f5f86;
+}
+
+/* Header */
+#header{
+  background: linear-gradient(#c7dbef, #a9c5e0);
+  padding:8px 12px 10px 12px;
+  border-bottom:1px solid #6d8fb0;
+  display:flex;
+  align-items:flex-end;
+  gap:12px;
+}
+
+/* Logo */
+#brand{ font-size:44px; font-weight:bold; line-height:1; letter-spacing:-1px; }
+#brand .tube{
+  background:#cc0000;
+  color:#fff;
+  padding:6px 10px;
+  border-radius:10px;
+  font-size:30px;
+  vertical-align:middle;
+  display:inline-block;
+  margin-left:6px;
+  border:1px solid #880000;
+}
+
+/* Tabs */
+#tabs{ flex:1; text-align:center; }
+.tab{
+  font-size:12px;
+  font-weight:800;
+  padding: 7px 14px;
+  border-radius: 10px 10px 0 0;
+  background: linear-gradient(#eeeeee, #cfcfcf);
+  color:#444;
+  border: 1px solid #8f8f8f;
+  border-bottom: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+}
+.tab.active{
+  background:#f3f3f3;
+  color:#222;
+}
+
+
+/* Right links */
+#headright{ white-space:nowrap; font-weight:bold; text-align:right; }
+.signup{
+  background: linear-gradient(#9fc6ea, #6aa2d4);
+  color:#fff;
+  padding:2px 10px;
+  border-radius:12px;
+  border:1px solid #2f5f86;
+  font-size:11px;
+}
+.help{ margin-left:8px; color:#e7f2ff; }
+
+/* White panel like the original main area */
+#whitepanel{
+  background:#fff;
+  border-top:1px solid #bcd1e6;
+  padding:14px 14px 18px 14px;
+}
+
+/* Main blue area */
+/* Login bar (classic) */
+#loginbar{
+  background:#c9dbec;
+  border:1px solid #9fb8cf;
+  padding:8px 10px;
+  margin:0 0 12px 0;
+  border-radius:12px;
+  text-align:center;
+}
+.login-form{ display:inline-block; }
+.login-left{ float:left; }
+.login-right{ float:right; margin:0; }
+
+.lbl{ font-weight:bold; margin-right:6px; }
+.txt{
+  width:170px;
+  height:20px;
+  border:1px solid #777;
+  margin-right:12px;
+  background:#fff;
+}
+.btn{
+  height:22px;
+  border:1px solid #777;
+  background:#e6e6e6;
+  font-weight:bold;
+  padding:0 10px;
+  cursor:pointer;
+}
+.btn:disabled{ opacity:.6; cursor:not-allowed; }
+
+/* White content box (big, old) */
+#content{
+  background:#fff;
+  border:1px solid #aac4da;
+  padding:10px;
+  min-height:520px;
+  border-radius:12px;
+}
+
+/* Messages */
+.flash{ padding:6px 8px; border:1px solid #ccc; margin-bottom:8px; }
+.flash.ok{ background:#e9fff0; }
+.flash.err{ background:#ffecec; }
+
+/* Grid */
+.grid-title{ font-weight:bold; margin:6px 0 8px 0; }
+
+.video-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap:10px;
+}
+.cell{ width:150px; }
+
+.thumb{
+  width:120px;
+  height:90px;
+  border:1px solid #777;             /* older darker border */
+  background:#eee;
+  overflow:hidden;
+}
+.thumb img{
+  width:120px;
+  height:90px;
+  object-fit:cover;
+  display:block;
+}
+.thumb-ph{ width:120px; height:90px; background:#ddd; }
+.vtitle{ font-weight:bold; margin-top:4px; }
+.vmeta{ color:#444; font-size:11px; margin-top:2px; }
+
+/* Boxes */
+.box{
+  border:1px solid #ccc;
+  padding:10px;
+  background:#f8f8f8;
+  margin-bottom:10px;
+}
+.row{ margin:6px 0; }
+.lbl2{ display:inline-block; width:90px; font-weight:bold; }
+.txt2{ width:60%; max-width:420px; }
+.hint{ color:#444; font-size:11px; margin-top:6px; }
+
+/* Watch page */
+.watchwrap{ display:flex; gap:12px; }
+.watchleft{ flex:1; }
+.watchright{ width:240px; }
+
+.playerbox{
+  width:480px;
+  max-width:100%;
+  background:#000;
+  border:1px solid #777;
+  padding:6px;
+}
+.player43{ width:100%; height:auto; aspect-ratio: 4 / 3; }
+
+.sidebox{
+  border:1px solid #ccc;
+  background:#f7f7f7;
+  padding:10px;
+}
+
+.ratebox{
+  margin-top:10px;
+  border:1px solid #ccc;
+  background:#f7f7f7;
+  padding:8px;
+}
+
+.commentswrap{ margin-top:12px; }
+.ta{
+  width:100%;
+  height:70px;
+  border:1px solid #777;
+  font-family:Tahoma, Verdana, Arial;
+  font-size:12px;
+}
+.comment{ border-top:1px dashed #ccc; padding:6px 0; }
+.small{ color:#666; font-size:11px; }
+.msgline{ padding:4px 0; border-bottom:1px dotted #ccc; }
+
+/* Stars */
+.stars{
+  display:inline-block;
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+.stars input{ display:none; }
+.stars label{
+  font-size:18px;
+  color:#999;
+  cursor:pointer;
+  padding:0 1px;
+}
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label{
+  color:#cc9900;
+}
+
+/* Help page */
+.helptable{ width:100%; border:1px solid #ccc; background:#f7f7f7; }
+.helpcol{ width:50%; vertical-align:top; padding:8px; border-right:1px solid #d0d0d0; }
+.helpcol:last-child{ border-right:0; }
+.helpbox{
+  border:1px solid #bdbdbd;
+  background:#ffffff;
+  padding:8px;
+  margin-bottom:8px;
+}
+
+/* Responsive */
+@media(max-width:780px){
+  #header{ flex-wrap:wrap; }
+  #tabs{ text-align:left; }
+  .watchwrap{ flex-direction:column; }
+  .watchright{ width:auto; }
+  .playerbox{ width:100%; }
+  .txt2{ width:100%; }
+}

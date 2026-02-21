@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% set title = "OldTube - Compose" %}
+{% block content %}
+  <div class="grid-title">Compose Message</div>
+
+  <div class="box">
+    <form method="post" action="{{ url_for('extras.send_message') }}">
+      <div class="row"><span class="lbl2">To:</span> <input class="txt2" name="to" value="{{ to }}"></div>
+      <div class="row"><span class="lbl2">Subject:</span> <input class="txt2" name="subject" value="{{ subject }}"></div>
+      <div class="row"><span class="lbl2">Body:</span><br>
+        <textarea class="ta" name="body" maxlength="1200" required></textarea>
+      </div>
+      <div class="row"><input class="btn" type="submit" value="Send"></div>
+      <div class="hint">Max 1200 chars.</div>
+    </form>
+  </div>
+{% endblock %}

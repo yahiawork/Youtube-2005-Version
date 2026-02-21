@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% set title = "OldTube - Help" %}
+{% block content %}
+  <div class="grid-title">Help</div>
+
+  <table class="helptable" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="helpcol">
+        <div class="helpbox">
+          <b>Getting Started</b><br>
+          • Create an account (top bar)<br>
+          • Upload a video (UPLOAD tab)<br>
+          • Watch + Like + Favorite videos<br>
+        </div>
+
+        <div class="helpbox">
+          <b>Accounts</b><br>
+          • Username: 3-20 (a-z, 0-9, _)<br>
+          • Password: min 6 chars<br>
+          • Keep your password safe<br>
+        </div>
+
+        <div class="helpbox">
+          <b>Videos</b><br>
+          • Formats: mp4, webm, ogg, mov, mkv<br>
+          • Thumbnails: png/jpg/webp (optional)<br>
+          • If no thumbnail: auto-generate (needs ffmpeg)<br>
+        </div>
+      </td>
+
+      <td class="helpcol">
+        <div class="helpbox">
+          <b>Favorites</b><br>
+          • Open a video page<br>
+          • Click "Add/Remove Favorite"<br>
+          • View them in FAVORITES tab<br>
+        </div>
+
+        <div class="helpbox">
+          <b>Messages</b><br>
+          • Go to MESSAGES tab<br>
+          • Compose → send to a username<br>
+          • Inbox/Sent available<br>
+        </div>
+
+        <div class="helpbox">
+          <b>Troubleshooting</b><br>
+          • Upload error? Check file size limit<br>
+          • No auto-thumbnail? Install ffmpeg<br>
+          • Video not loading? Try mp4 format<br>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="box">
+    <b>Contact</b><br>
+    Created By Yahia Saad (vexumbra).<br>
+    Tip: Contact me on <a mailto="yahiasaad.work@gmail.com">this email</a> (yahiasaad.work@gmail.com).
+  </div>
+{% endblock %}

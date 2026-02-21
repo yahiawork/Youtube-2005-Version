@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% set title = "OldTube - Profile" %}
+{% block content %}
+  <div class="grid-title">Profile: {{ profile.username }}</div>
+  <div class="box">
+    Joined: {{ profile.created_at }}<br>
+    Videos: {{ videos|length }} • Likes: {{ likes }} • Comments: {{ comments }}
+  </div>
+  <div class="grid-title">Uploads</div>
+  <div class="video-grid">
+    {% for v in videos %}
+      <div class="cell">
+        <a href="{{ url_for('videos.watch', video_id=v.id) }}">
+          <div class="thumb">
+            {% if v.thumb_filename %}
+              <img src="{{ url_for('videos.media_thumb', filename=v.thumb_filename) }}" alt="thumb">
+            {% else %}
+              <div class="thumb-ph"></div>
+            {% endif %}
+          </div>
+          <div class="vtitle">{{ v.title }}</div>
+        </a>
+      </div>
+    {% else %}
+      <div class="empty">No uploads.</div>
+    {% endfor %}
+  </div>
+{% endblock %}

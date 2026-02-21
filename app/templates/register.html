@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% set title = "OldTube - Sign Up" %}
+{% block content %}
+  <div class="grid-title">Sign Up</div>
+  <div class="box">
+    <form method="post" action="{{ url_for('auth.register') }}">
+      <div class="row"><span class="lbl2">Screen Name:</span> <input class="txt2" name="username"></div>
+      <div class="row"><span class="lbl2">Password:</span> <input class="txt2" type="password" name="password"></div>
+      <div class="row"><input class="btn" type="submit" value="Register"></div>
+      <div class="hint">Username: 3-20 (a-z, 0-9, _). Password: min 6 chars.</div>
+    </form>
+  </div>
+{% endblock %}

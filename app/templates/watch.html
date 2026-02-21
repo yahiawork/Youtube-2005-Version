@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% set title = "OldTube - Watch" %}
+{% block content %}
+  <div class="grid-title">{{ v.title }}</div>
+
+  <div class="watchwrap">
+  <div class="watchleft">
+    <div class="playerbox">
+      <video class="player43" controls preload="metadata">
+        <source src="{{ url_for('videos.media_video', filename=v.filename) }}">
+      </video>
+    </div>
+
+    <div class="ratebox">
+      <b>Rate this video:</b>
+      {% if user.is_authenticated %}
+        <form method="post" action="{{ url_for('videos.rate', video_id=v.id) }}">
+          <span class="stars">
+            {% for s in range(5,0,-1) %}
+              <input type="radio" id="star{{ s }}" name="stars" value="{{ s }}" {% if user_rating==s %}checked{% endif %}>
+              <label for="star{{ s }}" title="{{ s }} stars">★</label>
+            {% endfor %}
+          </span>
+          <input class="btn" type="submit" value="Rate">
+          <span class="small">Avg: {{ '%.1f'|format(rating_avg) }} ({{ rating_count }})</span>
+        </form>
+      {% else %}
+        <span class="small">Log in to rate. Avg: {{ '%.1f'|format(rating_avg) }} ({{ rating_count }})</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="watchright">
+    <div class="sidebox">
+      <b>Video Info</b><br>
+      Added: {{ v.uploaded_at }}<br>
+      From: <a href="{{ url_for('profile.user_profile', username=v.uploader.username) }}">{{ v.uploader.username }}</a><br>
+      File: .{{ v.ext }}<br>
+      <div style="height:8px;"></div>
+      <form method="post" action="{{ url_for('extras.toggle_favorite', video_id=v.id) }}" style="margin-top:6px;">
+        <input class="btn" type="submit" value="Add/Remove Favorite" {{ '' if user.is_authenticated else 'disabled' }}>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <div class="commentswrap">
+  <div class="sub">Comments</div>
+
+  {% if user.is_authenticated %}
+  <form method="post" action="{{ url_for('videos.add_comment', video_id=v.id) }}">
+    <textarea class="ta" name="body" maxlength="500" required></textarea><br>
+    <input class="btn" type="submit" value="Post Comment">
+  </form>
+  {% else %}
+    <div class="hint">Log in to comment.</div>
+  {% endif %}
+
+  {% for c in comments %}
+    <div class="comment">
+      <b><a href="{{ url_for('profile.user_profile', username=c.user.username) }}">{{ c.user.username }}</a></b>
+      <span class="small">({{ c.created_at }})</span><br>
+      {{ c.body }}
+    </div>
+  {% else %}
+    <div class="empty">No comments yet.</div>
+  {% endfor %}
+</div>
+{% endblock %}
